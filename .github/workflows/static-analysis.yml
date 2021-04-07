@@ -28,14 +28,14 @@ jobs:
           ini-values: display_errors = on, error_reporting = E_ALL
           tools: phpstan, composer
 
-      - name: "💽  Installing PHPStan Version"
+      - name: "💽  PHPStan Version"
         run:  phpstan --version
 
       - name: "💽  Installing Composer Packages"
         run: composer install
 
-      - name: "💽  Installing PHPStan Version"
-        run: phpstan --version
+      - name: "💽  PHPStan Version"
+        run: phpstan
 
       - name: "⚡  Setup PHPStan File"
         run: |
