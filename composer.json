@@ -1,0 +1,12 @@
+{
+ "require"     : {
+	"wponion/wponion"              : "*",
+	"varunsridharan/vsp-framework" : "*"
+  },
+  "require-dev" : {
+	"varunsridharan/wp-cli-textdomain"      : "*",
+	"varunsridharan/wp2github-md"           : "*",
+	"mustangostang/spyc"                    : "*",
+	"varunsridharan/php-classmap-generator" : "*"
+  }
+}
