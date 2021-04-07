@@ -24,7 +24,7 @@ jobs:
         uses: shivammathur/setup-php@2.10.0
         with:
           php-version: '7.4'
-          coverage: none
+          coverage: xdebug
           ini-values: display_errors = on, error_reporting = E_ALL
           tools: phpstan, composer
 
@@ -47,4 +47,4 @@ jobs:
 
       - name: "🧪 Test"
         continue-on-error: true
-        run: phpstan analyze  --debug
+        run: phpstan analyze  --debug --xdebug
