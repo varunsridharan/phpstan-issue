@@ -1,0 +1,56 @@
+name: "🧪 Static Analysis 2"
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**.php'
+      - 'composer.*'
+      - '.github/workflows/static-analysis2.yml'
+jobs:
+  static-analysis2:
+    name: "🧬 PHP Static Analysis"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "📥  Fetching Repository Contents"
+        uses: actions/checkout@main
+
+      - name: "💽  Installing PHP , Composer , CS2PR"
+        uses: shivammathur/setup-php@2.10.0
+        with:
+          php-version: '7.4'
+          coverage: none
+          tools: composer
+
+      - name: "💽  Installing Composer Packages"
+        run: composer global require phpstan/phpstan
+        
+      - name: "💽  PHPStan Version"
+        run:  phpstan --version
+  
+      - name: "💽  Installing Composer Packages"
+        run: composer install
+
+      - name: "💽  PHPStan Version"
+        run:  phpstan --version
+
+      - name: "💽  Installing PHPStan Package"
+        run: |
+          composer global require phpstan/extension-installer
+          composer global require szepeviktor/phpstan-wordpress
+          composer global require php-stubs/woocommerce-stubs
+
+      - name: "💽  PHPStan Version"
+        run:  phpstan --version
+
+      - name: "⚡  Setup PHPStan File"
+        run: |
+          echo "parameters:
+                    level: 8
+                    paths:
+                        - a.php
+          " > $GITHUB_WORKSPACE/phpstan.neon
+
+      - name: "🧪 Test"
+        continue-on-error: true
+        run: phpstan analyze  --debug
