@@ -23,13 +23,13 @@ jobs:
           tools: composer
 
       - name: "💽  Installing Composer Packages"
-        run: composer global require szepeviktor/phpstan-wordpress
+        run: composer global require varunsridharan/dev
         
       - name: "💽  PHPStan Version"
         run:  phpstan --version
   
-#      - name: "💽  Installing Composer Packages"
-#        run: composer install
+      - name: "💽  Installing Composer Packages"
+        run: composer install
 
       - name: "💽  PHPStan Version"
         run:  phpstan --version
