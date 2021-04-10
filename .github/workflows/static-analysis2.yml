@@ -23,7 +23,7 @@ jobs:
           tools: composer
 
       - name: "💽  Installing Composer Packages"
-        run: composer global require phpstan/phpstan
+        run: composer global require szepeviktor/phpstan-wordpress
         
       - name: "💽  PHPStan Version"
         run:  phpstan --version
@@ -34,14 +34,14 @@ jobs:
       - name: "💽  PHPStan Version"
         run:  phpstan --version
 
-      - name: "💽  Installing PHPStan Package"
-        run: |
-          composer global require phpstan/extension-installer
-          composer global require szepeviktor/phpstan-wordpress
-          composer global require php-stubs/woocommerce-stubs
+#      - name: "💽  Installing PHPStan Package"
+#        run: |
+#          composer global require phpstan/extension-installer
+#          composer global require szepeviktor/phpstan-wordpress
+#          composer global require php-stubs/woocommerce-stubs
 
-      - name: "💽  PHPStan Version"
-        run:  phpstan --version
+#      - name: "💽  PHPStan Version"
+#        run:  phpstan --version
 
       - name: "⚡  Setup PHPStan File"
         run: |
