@@ -23,7 +23,7 @@ jobs:
           tools: composer
 
       - name: "💽  Installing Composer Packages"
-        run: composer global require varunsridharan/dev --prefer-lowest --prefer-source
+        run: composer global require varunsridharan/dev:dev-master
         
       - name: "💽  PHPStan Version"
         run:  phpstan --version
