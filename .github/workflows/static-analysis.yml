@@ -27,15 +27,15 @@ jobs:
           coverage: none
           ini-values: display_errors = on, error_reporting = E_ALL
           tools: phpstan, composer
-
+        
+      - name: "💽  PHPStan Version"
+        run:  phpstan --version
+  
       - name: "💽  Installing Composer Packages"
         run: composer install
 
       - name: "💽  PHPStan Version"
-        run: |
-          php -v
-
-          phpstan --version
+        run:  phpstan --version
 
       - name: "💽  Installing PHPStan Package"
         run: |
@@ -44,10 +44,7 @@ jobs:
           composer global require phpstan/extension-installer
 
       - name: "💽  PHPStan Version"
-        run: |
-          php -v
-
-          phpstan --version
+        run:  phpstan --version
 
       - name: "⚡  Setup PHPStan File"
         run: |
