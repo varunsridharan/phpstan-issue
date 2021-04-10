@@ -24,27 +24,27 @@ jobs:
         uses: shivammathur/setup-php@2.10.0
         with:
           php-version: '7.4'
-          coverage: xdebug
-          ini-values: display_errors = on, error_reporting = E_ALL
-          tools: phpstan, composer
-
-      - name: "💽  Installing PHPStan Version"
-        run:  phpstan --version
+          coverage: none
+          tools: composer:v1
 
       - name: "💽  Installing Composer Packages"
-        run: composer install
+        run: composer install --no-dev
 
-      - name: "💽  Installing PHPStan Version"
-        run: phpstan --version
+      - name: "💽  Installing PHPStan Package"
+        run: |
+          composer global require szepeviktor/phpstan-wordpress
+          composer global require php-stubs/woocommerce-stubs
+          composer global require phpstan/extension-installer
 
       - name: "⚡  Setup PHPStan File"
         run: |
           echo "parameters:
                     level: 8
                     paths:
-                        - ./a.php
+                        - inc/
           " > $GITHUB_WORKSPACE/phpstan.neon
 
       - name: "🧪 Test"
-        continue-on-error: true
-        run: phpstan analyze --xdebug
+        uses: php-actions/phpstan@v2
+        with:
+          configuration: ./phpstan.neon
