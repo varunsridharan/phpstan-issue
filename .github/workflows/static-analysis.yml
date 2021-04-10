@@ -41,7 +41,7 @@ jobs:
           echo "parameters:
                     level: 8
                     paths:
-                        - inc/
+                        - a.php
           " > $GITHUB_WORKSPACE/phpstan.neon
 
       - name: "🧪 Test"
