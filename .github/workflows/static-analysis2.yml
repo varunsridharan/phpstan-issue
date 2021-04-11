@@ -22,23 +22,11 @@ jobs:
           coverage: none
           tools: composer
 
-#      - name: "💽  Installing Composer Packages"
-#        run: composer global require varunsridharan/dev:dev-main
-
       - name: "💽  Installing Composer Packages"
         run: composer install
 
       - name: "💽  PHPStan Version"
-        run:  ./vendor/bin/phpstan --version       
-    
-      - name: "💽  Installing Composer Packages"
-        run: composer require symfony/polyfill-php80
-
-      - name: "💽  PHPStan Version"
         run:  ./vendor/bin/phpstan --version
-
-#      - name: "💽  PHPStan Version"
-#        run:  phpstan --version
 
       - name: "⚡  Setup PHPStan File"
         run: |
