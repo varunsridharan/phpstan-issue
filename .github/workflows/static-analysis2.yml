@@ -24,12 +24,9 @@ jobs:
 
 #      - name: "💽  Installing Composer Packages"
 #        run: composer global require varunsridharan/dev:dev-main
-        
-      - name: "💽  PHPStan Version"
-        run:  phpstan --version
-  
+
       - name: "💽  Installing Composer Packages"
-        run: composer install --no-dev
+        run: composer install
 
       - name: "💽  PHPStan Version"
         run:  phpstan --version
