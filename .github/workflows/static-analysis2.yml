@@ -29,13 +29,13 @@ jobs:
         run: composer install
 
       - name: "💽  PHPStan Version"
-        run:  ./vendor/bin/phpstan --version
+        run:  ./vendor/bin/phpstan --version       
+    
+      - name: "💽  Installing Composer Packages"
+        run: composer require symfony/polyfill-php80
 
-#      - name: "💽  Installing PHPStan Package"
-#        run: |
-#          composer global require phpstan/extension-installer
-#          composer global require szepeviktor/phpstan-wordpress
-#          composer global require php-stubs/woocommerce-stubs
+      - name: "💽  PHPStan Version"
+        run:  ./vendor/bin/phpstan --version
 
 #      - name: "💽  PHPStan Version"
 #        run:  phpstan --version
