@@ -1,4 +1,6 @@
 <?php
+define('ABSPATH','hellp');
+
 if ( ! function_exists( 'wc_rbt_format_tax_rateae' ) ) {
 	/**
 	 * Formats Tax Rate
