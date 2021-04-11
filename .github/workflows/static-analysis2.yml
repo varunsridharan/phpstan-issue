@@ -23,10 +23,15 @@ jobs:
           tools: composer
 
       - name: "💽  Installing Composer Packages"
+        run: composer global require varunsridharan/dev:dev-main
+
+
+      - name: "💽  Installing Composer Packages"
         run: composer install
 
+
       - name: "💽  PHPStan Version"
-        run:  ./vendor/bin/phpstan --version
+        run:  phpstan --version
 
       - name: "⚡  Setup PHPStan File"
         run: |
@@ -38,4 +43,4 @@ jobs:
 
       - name: "🧪 Test"
         continue-on-error: true
-        run: ./vendor/bin/phpstan analyze  --debug
+        run: phpstan analyze  --debug
