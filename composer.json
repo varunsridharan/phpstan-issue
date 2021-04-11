@@ -4,6 +4,7 @@
 	"varunsridharan/vsp-framework" : "*"
   },
   "require-dev" : {
-	"varunsridharan/dev" : "dev-main"
+	"varunsridharan/dev" : "dev-main",
+	  "symfony/polyfill-php80":"*"
   }
 }
